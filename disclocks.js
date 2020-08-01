@@ -12,7 +12,9 @@ const ensureConfig         = require("./lib/util/ensureConfig");
 const { token } = ensureConfig("./config.json");
 
 // Bot client initialization
-const client = new Discord.Client();
+const client = new Discord.Client({
+    messageCacheMaxSize: 5,
+});
 
 // Client events
 client.events = [onMessage, onReady];
